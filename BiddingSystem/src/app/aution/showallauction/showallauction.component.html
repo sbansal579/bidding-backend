@@ -1,0 +1,28 @@
+<h2>All Auctions</h2>
+
+< <table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Starting amount</th>
+      <th>Product Name</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of auctionList">
+      <td>{{item.id}}</td>
+      <td>{{item.startingAmount}}</td>
+      <td>{{item.product.name}}</td>
+      <td>{{item.startTime|date}}</td>
+      <td>{{item.endTime|date}}</td>
+      <td>
+        <a [routerLink]="['/auction',item.id]" routerLinkActive="router-link-active">
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view
+        </a>
+      </td>
+    </tr>
+  </tbody>
+  </table>

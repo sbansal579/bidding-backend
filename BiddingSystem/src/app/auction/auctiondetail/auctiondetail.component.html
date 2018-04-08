@@ -1,0 +1,61 @@
+<h2>Auction Detail</h2>
+
+<div *ngIf="auction">
+  <fieldset>
+    <legend>Product Detail</legend>
+    <h3>
+      Name:{{auction.product.name}}
+    </h3>
+    <span style="text-align:right">
+      <button class="btn btn-primary" (click)="addBid()">Add Bid</button>
+    </span>
+  </fieldset>
+
+
+
+  <table class="table table-bordered table-hover" *ngIf="auction">
+
+    <caption style="text-align:center;">
+      <h3>Users List</h3>
+    </caption>
+    <thead>
+      <tr>
+        <th>Sr.No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Joining Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of auction.participants; let i =index">
+        <td>{{i+1}}</td>
+        <td>{{item.firstName}} {{item.lastName}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.joiningDate|date}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <table class="table table-bordered table-hover" *ngIf="auction">
+    <caption style="text-align:center;">
+      <h3>Bid information</h3>
+    </caption>
+    <thead>
+      <tr>
+        <th>Sr.No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of auction.biddings; let i =index">
+        <td>{{i+1}}</td>
+        <td>{{item.user.firstName}} {{item.user.lastName}}</td>
+        <td>{{item.user.email}}</td>
+        <td>{{item.amount}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

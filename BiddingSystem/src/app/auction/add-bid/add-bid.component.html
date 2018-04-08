@@ -1,0 +1,33 @@
+<h2>Add Bid</h2>
+<!-- #username="ngModel" [(ngModel)]="user.username" -->
+
+Enter Email <input type="email" [(ngModel)]="email">
+ <button class="btn btn-primary" (click)="getUserInfo()">Add Bid</button>
+
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="user">
+      <td>{{user.id}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<fieldset>
+    <legend>bid Amount</legend>
+    <input type="text" [(ngModel)]="amount">
+    <span style="text-align:right">
+      <button class="btn btn-primary" (click)="submit()">Submit</button>
+    </span>
+  </fieldset>
